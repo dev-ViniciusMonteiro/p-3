@@ -1,0 +1,229 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
+    "name": "Módulo Paciente",
+    "description": "Coleção de requisições para testar o módulo de pacientes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Listar Pacientes",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/pacientes?page=1&limit=10&search=",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "pacientes"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "key": "search",
+              "value": ""
+            }
+          ]
+        },
+        "description": "Lista todos os pacientes com paginação e busca opcional"
+      },
+      "response": []
+    },
+    {
+      "name": "Criar Paciente",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nome\": \"João da Silva\",\n    \"data_nascimento\": \"1990-01-15\",\n    \"cpf\": \"123.456.789-00\",\n    \"telefone\": \"(11) 98765-4321\",\n    \"email\": \"joao.silva@email.com\",\n    \"endereco\": \"Rua das Flores\",\n    \"numero\": \"123\",\n    \"complemento\": \"Apto 45\",\n    \"bairro\": \"Centro\",\n    \"cidade\": \"São Paulo\",\n    \"uf\": \"SP\",\n    \"cep\": \"01234-567\",\n    \"sexo_genero\": \"Masculino\",\n    \"rg\": \"12.345.678-9\",\n    \"responsavel\": \"\",\n    \"telefone_responsavel\": \"\",\n    \"escolaridade\": \"Superior Completo\",\n    \"profissao\": \"Engenheiro\",\n    \"queixa_principal\": \"Ansiedade e dificuldade para dormir\",\n    \"cid\": \"F41.1\",\n    \"historico_desenvolvimento\": \"Sem intercorrências significativas\",\n    \"encaminhamento\": \"Clínico Geral\",\n    \"status_consentimento\": \"Pendente\",\n    \"outras_informacoes\": \"Primeira vez em terapia\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/pacientes",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "pacientes"
+          ]
+        },
+        "description": "Cria um novo paciente com todos os dados"
+      },
+      "response": []
+    },
+    {
+      "name": "Obter Paciente por ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/pacientes/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "pacientes",
+            "1"
+          ]
+        },
+        "description": "Obtém os dados de um paciente específico pelo ID"
+      },
+      "response": []
+    },
+    {
+      "name": "Atualizar Paciente",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"telefone\": \"(11) 99999-8888\",\n    \"email\": \"joao.silva.novo@email.com\",\n    \"endereco\": \"Avenida Principal\",\n    \"numero\": \"456\",\n    \"complemento\": \"Bloco B, Apto 101\",\n    \"queixa_principal\": \"Ansiedade, insônia e dificuldade de concentração\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/pacientes/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "pacientes",
+            "1"
+          ]
+        },
+        "description": "Atualiza os dados de um paciente existente"
+      },
+      "response": []
+    },
+    {
+      "name": "Desativar Paciente",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/pacientes/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "pacientes",
+            "1"
+          ]
+        },
+        "description": "Desativa um paciente (exclusão lógica)"
+      },
+      "response": []
+    },
+    {
+      "name": "Obter Histórico Completo",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/pacientes/1/historico",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "pacientes",
+            "1",
+            "historico"
+          ]
+        },
+        "description": "Obtém o histórico completo de um paciente, incluindo dados cadastrais, sessões, fichas TCC e testes"
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3001",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "seu_token_jwt_aqui",
+      "type": "string"
+    }
+  ]
+}
